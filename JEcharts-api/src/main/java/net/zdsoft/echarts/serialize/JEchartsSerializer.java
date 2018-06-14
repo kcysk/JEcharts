@@ -26,16 +26,18 @@ public class JEchartsSerializer implements AutowiredObjectSerializer {
 
     static {
         autorireds = new HashSet<>();
-        autorireds.add(LeftEx.class);
-        autorireds.add(TopEx.class);
-        autorireds.add(RightEx.class);
         autorireds.add(BottomEx.class);
         autorireds.add(FontWeightEx.class);
+        autorireds.add(LeftEx.class);
         autorireds.add(PositionEx.class);
+        autorireds.add(RightEx.class);
         autorireds.add(RoamEx.class);
-        autorireds.add(SelectedModelEx.class);
-        autorireds.add(StepEx.class);
         autorireds.add(RoseTypeEx.class);
+        autorireds.add(SelectedModelEx.class);
+        autorireds.add(SortEx.class);
+        autorireds.add(StepEx.class);
+        autorireds.add(SymbolEx.class);
+        autorireds.add(TopEx.class);
     }
 
     @Override

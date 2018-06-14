@@ -41,5 +41,30 @@ final public class ScatterData extends CommonSData<Scatter, ScatterData> {
      * 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点
      */
     private Object[] symbolOffset;
-    private Tooltip<ScatterData> tooltip;
+
+
+    public ScatterData symbol(Symbol symbol) {
+        this.symbol = symbol;
+        return this;
+    }
+
+    public ScatterData symbolSize(Object symbolSize) {
+        this.symbolSize = symbolSize;
+        return this;
+    }
+
+    public ScatterData symbolRotate(Integer symbolRotate) {
+        this.symbolRotate = symbolRotate;
+        return this;
+    }
+
+    public ScatterData symbolKeepAspect(Boolean symbolKeepAspect) {
+        this.symbolKeepAspect = symbolKeepAspect;
+        return this;
+    }
+
+    public ScatterData symbolOffset(Object[] symbolOffset) {
+        this.symbolOffset = symbolOffset;
+        return this;
+    }
 }

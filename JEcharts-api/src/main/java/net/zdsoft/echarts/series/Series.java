@@ -35,7 +35,7 @@ public abstract class Series<R extends Series, D extends SData> extends Animatio
     private Integer z;
     private Integer zlevel;
 
-    private ItemStyle<R, ?> itemStyle;
+    private ItemStyle<R, ? extends ItemStyle> itemStyle;
     private Label<R> label;
 
 
@@ -62,4 +62,56 @@ public abstract class Series<R extends Series, D extends SData> extends Animatio
     }
 
     public abstract D create();
+
+
+    public Series type(SeriesEnum type) {
+        this.type = type;
+        return this;
+    }
+
+    public Series id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    public Series name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Series z(Integer z) {
+        this.z = z;
+        return this;
+    }
+
+    public Series zlevel(Integer zlevel) {
+        this.zlevel = zlevel;
+        return this;
+    }
+
+    public ItemStyle<R,? extends ItemStyle> itemStyle() {
+        if (itemStyle == null) {
+            itemStyle = new ItemStyle<>();
+            itemStyle.parent((R) this);
+        }
+        return itemStyle;
+    }
+
+    public Series itemStyle(ItemStyle<R, ? extends ItemStyle> itemStyle) {
+        this.itemStyle = itemStyle;
+        return this;
+    }
+
+    public Label<R> label() {
+        if (label == null) {
+            label = new Label<>();
+            label.parent((R) this);
+        }
+        return label;
+    }
+
+    public Series label(Label<R> label) {
+        this.label = label;
+        return this;
+    }
 }

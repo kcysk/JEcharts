@@ -18,15 +18,4 @@ import net.zdsoft.echarts.series.Bar;
 @Setter
 final public class BarData extends CommonSData<Bar, BarData> {
 
-    private Tooltip<BarData> tooltip;
-
-    public Tooltip<BarData> tooltip() {
-        tooltip = super.build( this, tooltip, Tooltip::new);
-        return tooltip;
-    }
-
-    public BarData tooltip(Tooltip<BarData> tooltip) {
-        this.tooltip = tooltip;
-        return this;
-    }
 }

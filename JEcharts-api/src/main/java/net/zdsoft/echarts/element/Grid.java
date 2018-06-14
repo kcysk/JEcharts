@@ -18,7 +18,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class Grid extends BaseComponent<Grid> {
+final public class Grid extends BaseComponent<Grid> {
 
     private String id;
     /**

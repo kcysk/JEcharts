@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 import net.zdsoft.echarts.enu.CoordinateSystem;
 import net.zdsoft.echarts.enu.ProgressiveChunkMode;
+import net.zdsoft.echarts.enu.SeriesEnum;
 import net.zdsoft.echarts.enu.SeriesLayoutBy;
 import net.zdsoft.echarts.series.data.BarData;
 
@@ -83,10 +84,115 @@ final public class Bar extends Series<Bar, BarData> {
     private SeriesLayoutBy seriesLayoutBy;
     private Integer datasetIndex;
 
+    public Bar() {
+        type(SeriesEnum.bar);
+    }
+
     @Override
     public BarData create() {
         BarData data = new BarData();
         data.parent(this);
         return data;
+    }
+
+
+    public Bar legendHoverLink(Boolean legendHoverLink) {
+        this.legendHoverLink = legendHoverLink;
+        return this;
+    }
+
+    public Bar coordinateSystem(CoordinateSystem coordinateSystem) {
+        this.coordinateSystem = coordinateSystem;
+        return this;
+    }
+
+    public Bar xAxisIndex(Integer xAxisIndex) {
+        this.xAxisIndex = xAxisIndex;
+        return this;
+    }
+
+    public Bar yAxisIndex(Integer yAxisIndex) {
+        this.yAxisIndex = yAxisIndex;
+        return this;
+    }
+
+    public Bar stack(String stack) {
+        this.stack = stack;
+        return this;
+    }
+
+    public Bar cursor(String cursor) {
+        this.cursor = cursor;
+        return this;
+    }
+
+    public Bar barWidth(Object barWidth) {
+        this.barWidth = barWidth;
+        return this;
+    }
+
+    public Bar barMaxWidth(Object barMaxWidth) {
+        this.barMaxWidth = barMaxWidth;
+        return this;
+    }
+
+    public Bar barMinHeight(Integer barMinHeight) {
+        this.barMinHeight = barMinHeight;
+        return this;
+    }
+
+    public Bar barGap(String barGap) {
+        this.barGap = barGap;
+        return this;
+    }
+
+    public Bar barCategoryGap(String barCategoryGap) {
+        this.barCategoryGap = barCategoryGap;
+        return this;
+    }
+
+    public Bar large(Boolean large) {
+        this.large = large;
+        return this;
+    }
+
+    public Bar largeThreshold(Integer largeThreshold) {
+        this.largeThreshold = largeThreshold;
+        return this;
+    }
+
+    public Bar progressive(Integer progressive) {
+        this.progressive = progressive;
+        return this;
+    }
+
+    public Bar progressiveThreshold(Integer progressiveThreshold) {
+        this.progressiveThreshold = progressiveThreshold;
+        return this;
+    }
+
+    public Bar progressiveChunkMode(ProgressiveChunkMode progressiveChunkMode) {
+        this.progressiveChunkMode = progressiveChunkMode;
+        return this;
+    }
+
+    public Bar dimensions(Object[] dimensions) {
+        this.dimensions = dimensions;
+        return this;
+    }
+
+    public Bar encode(Object encode) {
+        this.encode = encode;
+        return this;
+    }
+
+    public Bar seriesLayoutBy(SeriesLayoutBy seriesLayoutBy) {
+        this.seriesLayoutBy = seriesLayoutBy;
+        return this;
+    }
+
+    public Bar datasetIndex(Integer datasetIndex) {
+        this.datasetIndex = datasetIndex;
+        return this;
     }
 }

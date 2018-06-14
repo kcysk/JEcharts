@@ -9,6 +9,7 @@ package net.zdsoft.echarts.series;
 import lombok.Getter;
 import lombok.Setter;
 import net.zdsoft.echarts.enu.CoordinateSystem;
+import net.zdsoft.echarts.enu.SeriesEnum;
 import net.zdsoft.echarts.enu.SeriesLayoutBy;
 import net.zdsoft.echarts.enu.Symbol;
 import net.zdsoft.echarts.series.data.ScatterData;
@@ -79,10 +80,143 @@ final public class Scatter extends Series<Scatter, ScatterData> {
 
     private Tooltip<Scatter> tooltip;
 
+    public Scatter() {
+        type(SeriesEnum.scatter);
+    }
+
     @Override
     public ScatterData create() {
         ScatterData data = new ScatterData();
         data.parent(this);
         return data;
+    }
+
+
+    public Scatter coordinateSystem(CoordinateSystem coordinateSystem) {
+        this.coordinateSystem = coordinateSystem;
+        return this;
+    }
+
+    public Scatter xAxisIndex(Integer xAxisIndex) {
+        this.xAxisIndex = xAxisIndex;
+        return this;
+    }
+
+    public Scatter yAxisIndex(Integer yAxisIndex) {
+        this.yAxisIndex = yAxisIndex;
+        return this;
+    }
+
+    public Scatter polarIndex(Integer polarIndex) {
+        this.polarIndex = polarIndex;
+        return this;
+    }
+
+    public Scatter geoIndex(Integer geoIndex) {
+        this.geoIndex = geoIndex;
+        return this;
+    }
+
+    public Scatter calendarIndex(Integer calendarIndex) {
+        this.calendarIndex = calendarIndex;
+        return this;
+    }
+
+    public Scatter symbol(Symbol symbol) {
+        this.symbol = symbol;
+        return this;
+    }
+
+    public Scatter symbolSize(Object symbolSize) {
+        this.symbolSize = symbolSize;
+        return this;
+    }
+
+    public Scatter symbolRotate(Integer symbolRotate) {
+        this.symbolRotate = symbolRotate;
+        return this;
+    }
+
+    public Scatter symbolKeepAspect(Boolean symbolKeepAspect) {
+        this.symbolKeepAspect = symbolKeepAspect;
+        return this;
+    }
+
+    public Scatter symbolOffset(Object[] symbolOffset) {
+        this.symbolOffset = symbolOffset;
+        return this;
+    }
+
+    public Scatter hoverAnimation(Boolean hoverAnimation) {
+        this.hoverAnimation = hoverAnimation;
+        return this;
+    }
+
+    public Scatter legendHoverLink(Boolean legendHoverLink) {
+        this.legendHoverLink = legendHoverLink;
+        return this;
+    }
+
+    public Scatter large(Boolean large) {
+        this.large = large;
+        return this;
+    }
+
+    public Scatter largeThreshold(Integer largeThreshold) {
+        this.largeThreshold = largeThreshold;
+        return this;
+    }
+
+    public Scatter cursor(String cursor) {
+        this.cursor = cursor;
+        return this;
+    }
+
+    public Scatter emphasis(Emphasis<Line> emphasis) {
+        this.emphasis = emphasis;
+        return this;
+    }
+
+    public Scatter dimensions(Object[] dimensions) {
+        this.dimensions = dimensions;
+        return this;
+    }
+
+    public Scatter progressive(Integer progressive) {
+        this.progressive = progressive;
+        return this;
+    }
+
+    public Scatter progressiveThreshold(Integer progressiveThreshold) {
+        this.progressiveThreshold = progressiveThreshold;
+        return this;
+    }
+
+    public Scatter encode(Object encode) {
+        this.encode = encode;
+        return this;
+    }
+
+    public Scatter seriesLayoutBy(SeriesLayoutBy seriesLayoutBy) {
+        this.seriesLayoutBy = seriesLayoutBy;
+        return this;
+    }
+
+    public Scatter datasetIndex(Integer datasetIndex) {
+        this.datasetIndex = datasetIndex;
+        return this;
+    }
+
+    public Tooltip<Scatter> tooltip() {
+        if (tooltip == null) {
+            tooltip = new Tooltip<>();
+            tooltip.parent(this);
+        }
+        return tooltip;
+    }
+
+    public Scatter tooltip(Tooltip<Scatter> tooltip) {
+        this.tooltip = tooltip;
+        return this;
     }
 }

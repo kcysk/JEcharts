@@ -24,7 +24,7 @@ import net.zdsoft.echarts.style.TextStyle;
  */
 @Getter
 @Setter
-public class Legend extends BaseComponent<Legend> {
+final public class Legend extends BaseComponent<Legend> {
 
     private LegendEnum          type;
     private String              id;

@@ -13,8 +13,6 @@ import net.zdsoft.echarts.style.Emphasis;
 import net.zdsoft.echarts.style.ItemStyle;
 import net.zdsoft.echarts.style.Label;
 
-import java.util.function.Supplier;
-
 /**
  * @author shenke
  * @since 2018/6/13 下午4:58
@@ -28,6 +26,7 @@ public abstract class CommonSData<P, CD extends CommonSData> extends AbstractPar
     private Label<CD> label;
     private ItemStyle<CD, ItemStyle> itemStyle;
     private Emphasis<CD> emphasis;
+    private Tooltip<CD> tooltip;
 
     public CD name(String name) {
         this.name = name;
@@ -53,9 +52,9 @@ public abstract class CommonSData<P, CD extends CommonSData> extends AbstractPar
         return (CD) this;
     }
 
-    public ItemStyle<CD, ItemStyle> itemStyle(Supplier<ItemStyle<CD, ItemStyle>> supplier) {
+    public ItemStyle<CD, ItemStyle> itemStyle() {
         if (itemStyle == null) {
-            itemStyle = supplier.get();
+            itemStyle = new ItemStyle<>();
             itemStyle.parent((CD) this);
         }
         return itemStyle;
@@ -67,9 +66,9 @@ public abstract class CommonSData<P, CD extends CommonSData> extends AbstractPar
         return (CD) this;
     }
 
-    public Emphasis<CD> emphasis(Supplier<Emphasis<CD>> supplier) {
+    public Emphasis<CD> emphasis() {
         if (emphasis == null) {
-            emphasis = supplier.get();
+            emphasis = new Emphasis<>();
             emphasis.parent((CD) this);
         }
         return emphasis;
@@ -78,6 +77,20 @@ public abstract class CommonSData<P, CD extends CommonSData> extends AbstractPar
     public CD emphasis(Emphasis<CD> emphasis) {
         this.emphasis = emphasis;
         this.emphasis.parent((CD) this);
+        return (CD) this;
+    }
+
+    public Tooltip<CD> tooltip() {
+        if (tooltip == null) {
+            tooltip = new Tooltip<>();
+            tooltip.parent((CD) this);
+        }
+        return tooltip;
+    }
+
+    public CD tooltip(Tooltip<CD> tooltip) {
+        this.tooltip = tooltip;
+        this.tooltip.parent((CD) this);
         return (CD) this;
     }
 }

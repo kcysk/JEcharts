@@ -15,21 +15,40 @@ import net.zdsoft.echarts.enu.BorderType;
  * @author shenke
  * @since 2018/6/13 下午2:18
  */
-@Getter
-@Setter
+
 public class ItemStyle<P, I extends ItemStyle> extends AbstractParent<P, I> {
 
+    protected Object areaColor;
+
+    @Getter
+    @Setter
     private Object color;
+    @Getter
+    @Setter
     private Object borderColor;
+    @Getter
+    @Setter
     private Integer borderWidth;
+    @Getter
+    @Setter
     private BorderType borderType;
+    @Getter
+    @Setter
     private Integer shadowBlur;
+    @Getter
+    @Setter
     private Object shadowColor;
+    @Getter
+    @Setter
     private Integer shadowOffsetX;
+    @Getter
+    @Setter
     private Integer shadowOffsetY;
     /**
      * 图形透明度。支持从 0 到 1 的数字，为 0 时不绘制该图形。
      */
+    @Getter
+    @Setter
     private Double opacity;
 
 

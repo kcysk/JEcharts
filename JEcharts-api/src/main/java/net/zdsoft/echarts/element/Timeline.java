@@ -11,5 +11,5 @@ package net.zdsoft.echarts.element;
  * @author shenke
  * @since 2018/6/12 下午10:49
  */
-public class Timeline extends BaseComponent<Timeline> {
+final public class Timeline extends BaseComponent<Timeline> {
 }

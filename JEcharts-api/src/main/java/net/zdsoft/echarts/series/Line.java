@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 import net.zdsoft.echarts.enu.CoordinateSystem;
 import net.zdsoft.echarts.enu.Sampling;
+import net.zdsoft.echarts.enu.SeriesEnum;
 import net.zdsoft.echarts.enu.SeriesLayoutBy;
 import net.zdsoft.echarts.enu.SmoothMonotone;
 import net.zdsoft.echarts.enu.Step;
@@ -93,10 +94,179 @@ final public class Line extends Series<Line, LineData> {
     private SeriesLayoutBy seriesLayoutBy;
     private Integer datasetIndex;
 
+    public Line() {
+        type(SeriesEnum.line);
+    }
+
     @Override
     public LineData create() {
         LineData data = new LineData();
         data.parent(this);
         return data;
+    }
+
+
+    public Line coordinateSystem(CoordinateSystem coordinateSystem) {
+        this.coordinateSystem = coordinateSystem;
+        return this;
+    }
+
+    public Line xAxisIndex(Integer xAxisIndex) {
+        this.xAxisIndex = xAxisIndex;
+        return this;
+    }
+
+    public Line yAxisIndex(Integer yAxisIndex) {
+        this.yAxisIndex = yAxisIndex;
+        return this;
+    }
+
+    public Line polarIndex(Integer polarIndex) {
+        this.polarIndex = polarIndex;
+        return this;
+    }
+
+    public Line symbol(Symbol symbol) {
+        this.symbol = symbol;
+        return this;
+    }
+
+    public Line symbolSize(Object symbolSize) {
+        this.symbolSize = symbolSize;
+        return this;
+    }
+
+    public Line symbolRotate(Integer symbolRotate) {
+        this.symbolRotate = symbolRotate;
+        return this;
+    }
+
+    public Line symbolKeepAspect(Boolean symbolKeepAspect) {
+        this.symbolKeepAspect = symbolKeepAspect;
+        return this;
+    }
+
+    public Line symbolOffset(Object[] symbolOffset) {
+        this.symbolOffset = symbolOffset;
+        return this;
+    }
+
+    public Line showSymbol(Boolean showSymbol) {
+        this.showSymbol = showSymbol;
+        return this;
+    }
+
+    public Line showAllSymbol(Boolean showAllSymbol) {
+        this.showAllSymbol = showAllSymbol;
+        return this;
+    }
+
+    public Line hoverAnimation(Boolean hoverAnimation) {
+        this.hoverAnimation = hoverAnimation;
+        return this;
+    }
+
+    public Line legendHoverLink(Boolean legendHoverLink) {
+        this.legendHoverLink = legendHoverLink;
+        return this;
+    }
+
+    public Line stack(String stack) {
+        this.stack = stack;
+        return this;
+    }
+
+    public Line cursor(String cursor) {
+        this.cursor = cursor;
+        return this;
+    }
+
+    public Line connectNulls(Boolean connectNulls) {
+        this.connectNulls = connectNulls;
+        return this;
+    }
+
+    public Line clipOverflow(Boolean clipOverflow) {
+        this.clipOverflow = clipOverflow;
+        return this;
+    }
+
+    public Line step(Step step) {
+        this.step = step;
+        return this;
+    }
+
+    public LineStyle<Line, LineStyle> lineStyle() {
+        if (lineStyle == null) {
+            lineStyle = new LineStyle<>();
+            lineStyle.parent(this);
+        }
+        return lineStyle;
+    }
+
+    public Line lineStyle(LineStyle<Line, LineStyle> lineStyle) {
+        this.lineStyle = lineStyle;
+        return this;
+    }
+
+    public AreaStyle<Line, AreaStyle> areaStyle() {
+        if (areaStyle == null) {
+            areaStyle = new AreaStyle<>();
+            areaStyle.parent(this);
+        }
+        return areaStyle;
+    }
+
+    public Line areaStyle(AreaStyle<Line, AreaStyle> areaStyle) {
+        this.areaStyle = areaStyle;
+        return this;
+    }
+
+    public Emphasis<Line> emphasis() {
+        if (emphasis == null) {
+            emphasis = new Emphasis<>();
+            emphasis.parent(this);
+        }
+        return emphasis;
+    }
+
+    public Line emphasis(Emphasis<Line> emphasis) {
+        this.emphasis = emphasis;
+        return this;
+    }
+
+    public Line smooth(Boolean smooth) {
+        this.smooth = smooth;
+        return this;
+    }
+
+    public Line smoothMonotone(SmoothMonotone smoothMonotone) {
+        this.smoothMonotone = smoothMonotone;
+        return this;
+    }
+
+    public Line sampling(Sampling sampling) {
+        this.sampling = sampling;
+        return this;
+    }
+
+    public Line dimensions(Object[] dimensions) {
+        this.dimensions = dimensions;
+        return this;
+    }
+
+    public Line encode(Object encode) {
+        this.encode = encode;
+        return this;
+    }
+
+    public Line seriesLayoutBy(SeriesLayoutBy seriesLayoutBy) {
+        this.seriesLayoutBy = seriesLayoutBy;
+        return this;
+    }
+
+    public Line datasetIndex(Integer datasetIndex) {
+        this.datasetIndex = datasetIndex;
+        return this;
     }
 }

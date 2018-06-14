@@ -6,6 +6,12 @@
  */
 package net.zdsoft.echarts.element;
 
+import lombok.Getter;
+import lombok.Setter;
+import net.zdsoft.echarts.common.IRoot;
+import net.zdsoft.echarts.enu.Align;
+import net.zdsoft.echarts.enu.VisualMapType;
+
 /**
  * visualMap 是视觉映射组件，用于进行『视觉编码』，也就是将数据映射到视觉元素（视觉通道）。
  *
@@ -25,6 +31,24 @@ package net.zdsoft.echarts.element;
  * @author shenke
  * @since 2018/6/12 下午9:14
  */
-public class VisualMap extends BaseComponent<VisualMap> {
+@Getter
+@Setter
+final public class VisualMap extends IRoot<VisualMap> {
+
+    private VisualMapType type;
+    private String id;
+    private Double min;
+    private Double max;
+    private Double[] range;
+    private Boolean calculable;
+    private Boolean realtime;
+    private Boolean inverse;
+    private Integer precision;
+    private Integer itemWidth;
+    private Integer itemHeight;
+    private Align align;
+    private String[] text;
+    private Object textGap;
+    private Boolean show;
 
 }

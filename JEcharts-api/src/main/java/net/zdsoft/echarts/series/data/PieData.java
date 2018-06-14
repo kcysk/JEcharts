@@ -19,7 +19,10 @@ import net.zdsoft.echarts.series.Pie;
 final public class PieData extends CommonSData<Pie, PieData> {
 
     private Boolean selected;
-    private Tooltip<BarData> tooltip;
 
 
+    public PieData selected(Boolean selected) {
+        this.selected = selected;
+        return this;
+    }
 }

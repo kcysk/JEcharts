@@ -42,16 +42,15 @@ final public class EffectScatterData extends CommonSData<EffectScatter, EffectSc
      * 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点
      */
     private Object[] symbolOffset;
-    private Tooltip<EffectScatterData> tooltip;
 
     @Override
     public String getName() {
-        throw new NotSupportExcetion("option.series.data[type='scatter'] not support name");
+        return null;
     }
 
     @Override
     public Object getValue() {
-        throw new NotSupportExcetion("option.series.data[type='scatter'] not support value");
+        return null;
     }
 
     @Override
@@ -62,5 +61,31 @@ final public class EffectScatterData extends CommonSData<EffectScatter, EffectSc
     @Override
     public void setValue(Object value) {
         throw new NotSupportExcetion("option.series.data[type='scatter'] not support value");
+    }
+
+
+    public EffectScatterData symbol(Symbol symbol) {
+        this.symbol = symbol;
+        return this;
+    }
+
+    public EffectScatterData symbolSize(Object symbolSize) {
+        this.symbolSize = symbolSize;
+        return this;
+    }
+
+    public EffectScatterData symbolRotate(Integer symbolRotate) {
+        this.symbolRotate = symbolRotate;
+        return this;
+    }
+
+    public EffectScatterData symbolKeepAspect(Boolean symbolKeepAspect) {
+        this.symbolKeepAspect = symbolKeepAspect;
+        return this;
+    }
+
+    public EffectScatterData symbolOffset(Object[] symbolOffset) {
+        this.symbolOffset = symbolOffset;
+        return this;
     }
 }

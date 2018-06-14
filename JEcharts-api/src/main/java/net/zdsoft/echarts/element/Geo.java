@@ -25,7 +25,7 @@ import net.zdsoft.echarts.style.Label;
  */
 @Getter
 @Setter
-public class Geo extends BaseComponent<Geo> {
+final public class Geo extends BaseComponent<Geo> {
 
     private String map;
     /**

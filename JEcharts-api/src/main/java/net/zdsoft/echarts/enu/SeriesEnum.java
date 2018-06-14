@@ -14,7 +14,7 @@ public enum SeriesEnum {
 
     line, bar, pie, scatter, effectScatter, radar, tree, treemap, subburst, boxplot,
     candlestick, heatmap, parallel, lines, graph, sankey, funnel, gauge, pictorialBar,
-    themeRiver, custom,
+    themeRiver, custom, map,
 
     //--------- 扩展部分 ---------//
     wordCloud

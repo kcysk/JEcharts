@@ -24,4 +24,6 @@ final public class AreaColorItemStyle<P> extends ItemStyle<P, AreaColorItemStyle
         this.areaColor = areaColor;
         return this;
     }
+
+
 }

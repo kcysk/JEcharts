@@ -19,7 +19,7 @@ import net.zdsoft.echarts.style.TextStyle;
  */
 @Getter
 @Setter
-public class Tooltip<P> extends AbstractParent<P, Tooltip> {
+final public class Tooltip<P> extends AbstractParent<P, Tooltip> {
 
     /**
      * 注意：series.data.tooltip 仅在 tooltip.trigger 为 'item' 时有效。
@@ -55,4 +55,52 @@ public class Tooltip<P> extends AbstractParent<P, Tooltip> {
 
     private TextStyle<Tooltip<P>, TextStyle> textStyle;
     private String extraCssText;
+
+
+    public Tooltip position(Position position) {
+        this.position = position;
+        return this;
+    }
+
+    public Tooltip formatter(String formatter) {
+        this.formatter = formatter;
+        return this;
+    }
+
+    public Tooltip backgroundColor(Object backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
+    public Tooltip borderColor(Object borderColor) {
+        this.borderColor = borderColor;
+        return this;
+    }
+
+    public Tooltip borderWidth(Integer borderWidth) {
+        this.borderWidth = borderWidth;
+        return this;
+    }
+
+    public Tooltip padding(Integer padding) {
+        this.padding = padding;
+        return this;
+    }
+
+    public TextStyle<Tooltip<P>, TextStyle> textStyle() {
+        if (textStyle == null) {
+            textStyle = new TextStyle<>();
+        }
+        return textStyle;
+    }
+
+    public Tooltip textStyle(TextStyle<Tooltip<P>, TextStyle> textStyle) {
+        this.textStyle = textStyle;
+        return this;
+    }
+
+    public Tooltip extraCssText(String extraCssText) {
+        this.extraCssText = extraCssText;
+        return this;
+    }
 }

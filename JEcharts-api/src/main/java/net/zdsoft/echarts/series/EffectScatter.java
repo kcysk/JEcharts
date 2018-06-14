@@ -9,10 +9,14 @@ package net.zdsoft.echarts.series;
 import lombok.Getter;
 import lombok.Setter;
 import net.zdsoft.echarts.enu.CoordinateSystem;
+import net.zdsoft.echarts.enu.EffectOn;
+import net.zdsoft.echarts.enu.EffectType;
+import net.zdsoft.echarts.enu.SeriesEnum;
 import net.zdsoft.echarts.enu.SeriesLayoutBy;
 import net.zdsoft.echarts.enu.Symbol;
 import net.zdsoft.echarts.series.data.EffectScatterData;
 import net.zdsoft.echarts.series.data.Tooltip;
+import net.zdsoft.echarts.series.inner.RippleEffect;
 import net.zdsoft.echarts.style.Emphasis;
 
 /**
@@ -23,8 +27,11 @@ import net.zdsoft.echarts.style.Emphasis;
 @Setter
 final public class EffectScatter extends Series<EffectScatter, EffectScatterData> {
 
-    private CoordinateSystem coordinateSystem;
+    private EffectType effectType;
+    private EffectOn showEffectOn;
+    private RippleEffect rippleEffect;
 
+    private CoordinateSystem coordinateSystem;
     private Integer xAxisIndex;
     private Integer yAxisIndex;
     private Integer polarIndex;
@@ -58,11 +65,9 @@ final public class EffectScatter extends Series<EffectScatter, EffectScatterData
     private Boolean hoverAnimation;
     private Boolean legendHoverLink;
 
-    private Boolean large;
-    private Integer largeThreshold;
     private String cursor;
 
-    private Emphasis<Line> emphasis;
+    private Emphasis<EffectScatter> emphasis;
     private Object[] dimensions;
 
     private Integer progressive;
@@ -80,10 +85,156 @@ final public class EffectScatter extends Series<EffectScatter, EffectScatterData
 
     private Tooltip<EffectScatter> tooltip;
 
+    public EffectScatter() {
+        type(SeriesEnum.effectScatter);
+    }
+
     @Override
     public EffectScatterData create() {
         EffectScatterData data = new EffectScatterData();
         data.parent(this);
         return data;
+    }
+
+
+    public EffectScatter effectType(EffectType effectType) {
+        this.effectType = effectType;
+        return this;
+    }
+
+    public EffectScatter showEffectOn(EffectOn showEffectOn) {
+        this.showEffectOn = showEffectOn;
+        return this;
+    }
+
+    public EffectScatter rippleEffect(RippleEffect rippleEffect) {
+        this.rippleEffect = rippleEffect;
+        return this;
+    }
+
+    public EffectScatter coordinateSystem(CoordinateSystem coordinateSystem) {
+        this.coordinateSystem = coordinateSystem;
+        return this;
+    }
+
+    public EffectScatter xAxisIndex(Integer xAxisIndex) {
+        this.xAxisIndex = xAxisIndex;
+        return this;
+    }
+
+    public EffectScatter yAxisIndex(Integer yAxisIndex) {
+        this.yAxisIndex = yAxisIndex;
+        return this;
+    }
+
+    public EffectScatter polarIndex(Integer polarIndex) {
+        this.polarIndex = polarIndex;
+        return this;
+    }
+
+    public EffectScatter geoIndex(Integer geoIndex) {
+        this.geoIndex = geoIndex;
+        return this;
+    }
+
+    public EffectScatter calendarIndex(Integer calendarIndex) {
+        this.calendarIndex = calendarIndex;
+        return this;
+    }
+
+    public EffectScatter symbol(Symbol symbol) {
+        this.symbol = symbol;
+        return this;
+    }
+
+    public EffectScatter symbolSize(Object symbolSize) {
+        this.symbolSize = symbolSize;
+        return this;
+    }
+
+    public EffectScatter symbolRotate(Integer symbolRotate) {
+        this.symbolRotate = symbolRotate;
+        return this;
+    }
+
+    public EffectScatter symbolKeepAspect(Boolean symbolKeepAspect) {
+        this.symbolKeepAspect = symbolKeepAspect;
+        return this;
+    }
+
+    public EffectScatter symbolOffset(Object[] symbolOffset) {
+        this.symbolOffset = symbolOffset;
+        return this;
+    }
+
+    public EffectScatter hoverAnimation(Boolean hoverAnimation) {
+        this.hoverAnimation = hoverAnimation;
+        return this;
+    }
+
+    public EffectScatter legendHoverLink(Boolean legendHoverLink) {
+        this.legendHoverLink = legendHoverLink;
+        return this;
+    }
+
+    public EffectScatter cursor(String cursor) {
+        this.cursor = cursor;
+        return this;
+    }
+
+    public Emphasis<EffectScatter> emphasis() {
+        if (emphasis == null) {
+            emphasis = new Emphasis<>();
+            emphasis.parent(this);
+        }
+        return emphasis;
+    }
+
+    public EffectScatter emphasis(Emphasis<EffectScatter> emphasis) {
+        this.emphasis = emphasis;
+        return this;
+    }
+
+    public EffectScatter dimensions(Object[] dimensions) {
+        this.dimensions = dimensions;
+        return this;
+    }
+
+    public EffectScatter progressive(Integer progressive) {
+        this.progressive = progressive;
+        return this;
+    }
+
+    public EffectScatter progressiveThreshold(Integer progressiveThreshold) {
+        this.progressiveThreshold = progressiveThreshold;
+        return this;
+    }
+
+    public EffectScatter encode(Object encode) {
+        this.encode = encode;
+        return this;
+    }
+
+    public EffectScatter seriesLayoutBy(SeriesLayoutBy seriesLayoutBy) {
+        this.seriesLayoutBy = seriesLayoutBy;
+        return this;
+    }
+
+    public EffectScatter datasetIndex(Integer datasetIndex) {
+        this.datasetIndex = datasetIndex;
+        return this;
+    }
+
+    public Tooltip<EffectScatter> tooltip() {
+        if (tooltip == null) {
+            tooltip = new Tooltip<>();
+            tooltip.parent(this);
+        }
+        return tooltip;
+    }
+
+    public EffectScatter tooltip(Tooltip<EffectScatter> tooltip) {
+        this.tooltip = tooltip;
+        return this;
     }
 }

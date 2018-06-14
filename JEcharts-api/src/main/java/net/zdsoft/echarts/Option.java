@@ -9,11 +9,17 @@ package net.zdsoft.echarts;
 import lombok.Getter;
 import lombok.Setter;
 import net.zdsoft.echarts.common.Animationer;
+import net.zdsoft.echarts.coords.cartesian2d.Cartesian2dAxis;
+import net.zdsoft.echarts.coords.polar.AngleAxis;
+import net.zdsoft.echarts.coords.polar.RadiusAxis;
 import net.zdsoft.echarts.element.Geo;
 import net.zdsoft.echarts.element.Grid;
 import net.zdsoft.echarts.element.Legend;
 import net.zdsoft.echarts.element.Title;
+import net.zdsoft.echarts.series.Series;
 import net.zdsoft.echarts.style.TextStyle;
+
+import java.util.List;
 
 /**
  * @author shenke
@@ -31,6 +37,11 @@ public class Option extends Animationer<Option, Option> {
     private Legend legend;
     private Grid grid;
     private Geo geo;
+    private Cartesian2dAxis xAxis;
+    private Cartesian2dAxis yAxis;
+    private RadiusAxis radiusAxis;
+    private AngleAxis angleAxis;
+    private List<Series> series;
 
     //------------ 样式 ------------//
 

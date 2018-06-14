@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 import net.zdsoft.echarts.enu.RoseType;
 import net.zdsoft.echarts.enu.SelectedMode;
+import net.zdsoft.echarts.enu.SeriesEnum;
 import net.zdsoft.echarts.enu.SeriesLayoutBy;
 import net.zdsoft.echarts.series.data.PieData;
 import net.zdsoft.echarts.series.data.Tooltip;
@@ -50,10 +51,108 @@ final public class Pie extends Series<Pie, PieData> {
 
     private Tooltip<Pie> tooltip;
 
+    public Pie() {
+        type(SeriesEnum.pie);
+    }
+
     @Override
     public PieData create() {
         PieData data = new PieData();
         data.parent(this);
         return data;
+    }
+
+
+    public Pie legendHoverLink(Boolean legendHoverLink) {
+        this.legendHoverLink = legendHoverLink;
+        return this;
+    }
+
+    public Pie hoverAnimation(Boolean hoverAnimation) {
+        this.hoverAnimation = hoverAnimation;
+        return this;
+    }
+
+    public Pie hoverOffset(Integer hoverOffset) {
+        this.hoverOffset = hoverOffset;
+        return this;
+    }
+
+    public Pie selectedMode(SelectedMode selectedMode) {
+        this.selectedMode = selectedMode;
+        return this;
+    }
+
+    public Pie selectedOffset(Integer selectedOffset) {
+        this.selectedOffset = selectedOffset;
+        return this;
+    }
+
+    public Pie clockwise(Boolean clockwise) {
+        this.clockwise = clockwise;
+        return this;
+    }
+
+    public Pie startAngle(Integer startAngle) {
+        this.startAngle = startAngle;
+        return this;
+    }
+
+    public Pie minAngle(Integer minAngle) {
+        this.minAngle = minAngle;
+        return this;
+    }
+
+    public Pie roseType(RoseType roseType) {
+        this.roseType = roseType;
+        return this;
+    }
+
+    public Pie avoidLabelOverlap(Boolean avoidLabelOverlap) {
+        this.avoidLabelOverlap = avoidLabelOverlap;
+        return this;
+    }
+
+    public Pie stillShowZeroSum(Boolean stillShowZeroSum) {
+        this.stillShowZeroSum = stillShowZeroSum;
+        return this;
+    }
+
+    public Pie cursor(String cursor) {
+        this.cursor = cursor;
+        return this;
+    }
+
+    public Pie center(String[] center) {
+        this.center = center;
+        return this;
+    }
+
+    public Pie radius(Object[] radius) {
+        this.radius = radius;
+        return this;
+    }
+
+    public Pie seriesLayoutBy(SeriesLayoutBy seriesLayoutBy) {
+        this.seriesLayoutBy = seriesLayoutBy;
+        return this;
+    }
+
+    public Pie datasetIndex(Integer datasetIndex) {
+        this.datasetIndex = datasetIndex;
+        return this;
+    }
+
+    public Tooltip<Pie> tooltip() {
+        if (tooltip == null) {
+            tooltip = new Tooltip<>();
+            tooltip.parent(this);
+        }
+        return tooltip;
+    }
+
+    public Pie tooltip(Tooltip<Pie> tooltip) {
+        this.tooltip = tooltip;
+        return this;
     }
 }
