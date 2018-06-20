@@ -9,16 +9,21 @@ package net.zdsoft.echarts;
 import lombok.Getter;
 import lombok.Setter;
 import net.zdsoft.echarts.common.Animationer;
+import net.zdsoft.echarts.coords.AxisPointer;
 import net.zdsoft.echarts.coords.cartesian2d.Cartesian2dAxis;
 import net.zdsoft.echarts.coords.polar.AngleAxis;
 import net.zdsoft.echarts.coords.polar.RadiusAxis;
+import net.zdsoft.echarts.element.DataZoom;
 import net.zdsoft.echarts.element.Geo;
 import net.zdsoft.echarts.element.Grid;
 import net.zdsoft.echarts.element.Legend;
+import net.zdsoft.echarts.element.Radar;
 import net.zdsoft.echarts.element.Title;
+import net.zdsoft.echarts.element.VisualMap;
 import net.zdsoft.echarts.series.Series;
 import net.zdsoft.echarts.style.TextStyle;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,11 +41,17 @@ public class Option extends Animationer<Option, Option> {
     private Title title;
     private Legend legend;
     private Grid grid;
-    private Geo geo;
     private Cartesian2dAxis xAxis;
     private Cartesian2dAxis yAxis;
     private RadiusAxis radiusAxis;
     private AngleAxis angleAxis;
+    private Radar radar;
+    private List<DataZoom> dataZoom;
+    private List<VisualMap> visualMap;
+
+
+    private AxisPointer<Option> axisPointer;
+    private Geo geo;
     private List<Series> series;
 
     //------------ 样式 ------------//
@@ -62,7 +73,7 @@ public class Option extends Animationer<Option, Option> {
      * 具体请参考 http://echarts.baidu.com/option.html#backgroundColor
      */
     private Object backgroundColor;
-    private TextStyle textStyle;
+    private TextStyle<Option, TextStyle> textStyle;
     private Object blendMode;
     private Integer hoverLayerThreshold;
     /**
@@ -77,4 +88,203 @@ public class Option extends Animationer<Option, Option> {
      * 注意，这个参数实际影响的是『展示』，而非用户输入的时间值的解析。 关于用户输入的时间值（例如 1491339540396, '2013-01-04' 等）的解析，参见 date 中时间相关部分。
      */
     private Boolean useUTC;
+
+    public Title title() {
+        if (title == null) {
+            title = new Title();
+            title.option(this);
+        }
+        return title;
+    }
+
+    public Option title(Title title) {
+        this.title = title;
+        return this;
+    }
+
+    public Legend legend() {
+        if (legend == null) {
+            legend = new Legend().option(this);
+        }
+        return legend;
+    }
+
+    public Option legend(Legend legend) {
+        this.legend = legend;
+        return this;
+    }
+
+    public Grid grid() {
+        if (grid == null) {
+            grid = new Grid().option(this);
+        }
+        return grid;
+    }
+
+    public Option grid(Grid grid) {
+        this.grid = grid;
+        return this;
+    }
+
+    public Cartesian2dAxis xAxis() {
+        if (xAxis == null) {
+            xAxis = new Cartesian2dAxis().option(this);
+        }
+        return xAxis;
+    }
+
+    public Option xAxis(Cartesian2dAxis xAxis) {
+        this.xAxis = xAxis;
+        return this;
+    }
+
+    public Cartesian2dAxis yAxis() {
+        if (yAxis == null) {
+            yAxis = new Cartesian2dAxis().option(this);
+        }
+        return yAxis;
+    }
+
+    public Option yAxis(Cartesian2dAxis yAxis) {
+        this.yAxis = yAxis;
+        return this;
+    }
+
+    public RadiusAxis radiusAxis() {
+        if (radiusAxis == null) {
+            radiusAxis = new RadiusAxis().option(this);
+        }
+        return radiusAxis;
+    }
+
+    public Option radiusAxis(RadiusAxis radiusAxis) {
+        this.radiusAxis = radiusAxis;
+        return this;
+    }
+
+    public AngleAxis angleAxis() {
+        if (angleAxis == null) {
+            angleAxis = new AngleAxis().option(this);
+        }
+        return angleAxis;
+    }
+
+    public Option angleAxis(AngleAxis angleAxis) {
+        this.angleAxis = angleAxis;
+        return this;
+    }
+
+    public Radar radar() {
+        if (radar == null) {
+            radar = new Radar().option(this);
+        }
+        return radar;
+    }
+
+    public Option radar(Radar radar) {
+        this.radar = radar;
+        return this;
+    }
+
+    public Option dataZoom(DataZoom zoom) {
+        if (dataZoom == null) {
+            dataZoom = new ArrayList<>();
+        }
+        dataZoom.add(zoom);
+        return this;
+    }
+
+    public Option dataZoom(List<DataZoom> dataZoom) {
+        this.dataZoom = dataZoom;
+        return this;
+    }
+
+    public Option visualMap(VisualMap vm) {
+        if (visualMap == null) {
+            visualMap = new ArrayList<>();
+            visualMap.add(vm);
+        }
+        return this;
+    }
+
+    public Option visualMap(List<VisualMap> visualMap) {
+        this.visualMap = visualMap;
+        return this;
+    }
+
+    public AxisPointer<Option> axisPointer() {
+        if (axisPointer == null) {
+            axisPointer = new AxisPointer<>();
+            axisPointer.parent(this);
+        }
+        return axisPointer;
+    }
+
+    public Option axisPointer(AxisPointer<Option> axisPointer) {
+        this.axisPointer = axisPointer;
+        return this;
+    }
+
+    public Geo geo() {
+        if (geo == null) {
+            geo = new Geo().option(this);
+        }
+        return geo;
+    }
+
+    public Option geo(Geo geo) {
+        this.geo = geo;
+        return this;
+    }
+
+    public Option series(Series s) {
+        if (series == null) {
+            series = new ArrayList<>();
+        }
+        series.add(s);
+        return this;
+    }
+
+    public Option series(List<Series> series) {
+        this.series = series;
+        return this;
+    }
+
+    public Option color(Object color) {
+        this.color = color;
+        return this;
+    }
+
+    public Option backgroundColor(Object backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
+    public TextStyle<Option, TextStyle> textStyle() {
+        if (textStyle == null) {
+            textStyle = new TextStyle<>();
+            textStyle.parent(this);
+        }
+        return textStyle;
+    }
+
+    public Option textStyle(TextStyle<Option, TextStyle> textStyle) {
+        this.textStyle = textStyle;
+        return this;
+    }
+
+    public Option blendMode(Object blendMode) {
+        this.blendMode = blendMode;
+        return this;
+    }
+
+    public Option hoverLayerThreshold(Integer hoverLayerThreshold) {
+        this.hoverLayerThreshold = hoverLayerThreshold;
+        return this;
+    }
+
+    public Option useUTC(Boolean useUTC) {
+        this.useUTC = useUTC;
+        return this;
+    }
 }
