@@ -19,7 +19,7 @@ import net.zdsoft.echarts.style.Label;
  */
 @Getter
 @Setter
-public abstract class CommonSData<P, CD extends CommonSData> extends AbstractParent<P, CD> implements SData<CD> {
+abstract class CommonSData<P, CD extends CommonSData> extends AbstractParent<P, CD> implements SData<CD> {
     private String name;
     private Object value;
 

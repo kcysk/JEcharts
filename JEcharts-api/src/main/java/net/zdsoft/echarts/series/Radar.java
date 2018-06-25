@@ -11,7 +11,6 @@ import lombok.Setter;
 import net.zdsoft.echarts.enu.SeriesEnum;
 import net.zdsoft.echarts.enu.Symbol;
 import net.zdsoft.echarts.series.data.RadarData;
-import net.zdsoft.echarts.series.data.Tooltip;
 import net.zdsoft.echarts.style.AreaStyle;
 import net.zdsoft.echarts.style.Emphasis;
 import net.zdsoft.echarts.style.LineStyle;
@@ -53,8 +52,6 @@ final public class Radar extends Series<Radar, RadarData> {
     private AreaStyle<Radar, AreaStyle> areaStyle;
     private Emphasis<Radar> emphasis;
 
-
-    private Tooltip<Radar> tooltip;
 
     public Radar() {
         type(SeriesEnum.radar);
@@ -137,16 +134,4 @@ final public class Radar extends Series<Radar, RadarData> {
         return this;
     }
 
-    public Tooltip<Radar> tooltip() {
-        if (tooltip == null) {
-            tooltip = new Tooltip<>();
-            tooltip.parent(this);
-        }
-        return tooltip;
-    }
-
-    public Radar tooltip(Tooltip<Radar> tooltip) {
-        this.tooltip = tooltip;
-        return this;
-    }
 }

@@ -26,7 +26,7 @@ final public class BottomEx implements Bottom {
         return value == null ? null : value.toString();
     }
 
-    public Bottom create(Object value) {
+    public static Bottom create(Object value) {
         return new BottomEx().value(value);
     }
 

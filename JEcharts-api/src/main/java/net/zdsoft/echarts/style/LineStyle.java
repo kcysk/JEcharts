@@ -27,6 +27,7 @@ public class LineStyle<P, L extends LineStyle> extends AbstractParent<P, L> {
     private Integer shadowOffsetX;
     private Integer shadowOffsetY;
     private Double opacity;
+    private Double curveness;
 
 
     public L color(Object color) {
@@ -66,6 +67,12 @@ public class LineStyle<P, L extends LineStyle> extends AbstractParent<P, L> {
 
     public L opacity(Double opacity) {
         this.opacity = opacity;
+        return (L) this;
+    }
+
+
+    public L curveness(Double curveness) {
+        this.curveness = curveness;
         return (L) this;
     }
 }

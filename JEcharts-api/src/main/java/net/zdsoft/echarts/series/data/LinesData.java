@@ -8,7 +8,6 @@ package net.zdsoft.echarts.series.data;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.zdsoft.echarts.exception.NotSupportExcetion;
 import net.zdsoft.echarts.series.Lines;
 
 /**
@@ -19,23 +18,10 @@ import net.zdsoft.echarts.series.Lines;
 @Setter
 final public class LinesData extends CommonSData<Lines, LinesData> {
 
-    @Override
-    public String getName() {
-        return null;
-    }
+    private Object[][] coords;
 
-    @Override
-    public Object getValue() {
-        return null;
-    }
-
-    @Override
-    public void setValue(Object value) {
-        throw new NotSupportExcetion("option.series.data[type='lines'] not support name");
-    }
-
-    @Override
-    public void setName(String name) {
-        throw new NotSupportExcetion("option.series.data[type='lines'] not support value");
+    public LinesData coords(Object[][] coords) {
+        this.coords = coords;
+        return this;
     }
 }

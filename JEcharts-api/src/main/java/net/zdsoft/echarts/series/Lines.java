@@ -92,6 +92,14 @@ final public class Lines extends Series<Lines, LinesData> {
         return this;
     }
 
+    public Effect effect() {
+        if (effect == null) {
+            effect = new Effect();
+            effect.parent(this);
+        }
+        return effect;
+    }
+
     public Lines effect(Effect effect) {
         this.effect = effect;
         return this;

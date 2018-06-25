@@ -4,7 +4,7 @@
  * Date:     2018/6/12 下午9:13
  * Descriptor:
  */
-package net.zdsoft.echarts.element;
+package net.zdsoft.echarts.coords.radar;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,8 +15,11 @@ import net.zdsoft.echarts.coords.AxisPointer;
 import net.zdsoft.echarts.coords.AxisTick;
 import net.zdsoft.echarts.coords.SplitArea;
 import net.zdsoft.echarts.coords.SplitLine;
+import net.zdsoft.echarts.element.inner.Indicator;
 import net.zdsoft.echarts.element.inner.RadarName;
 import net.zdsoft.echarts.enu.RadarShape;
+
+import java.util.LinkedHashSet;
 
 /**
  * 雷达图坐标系组件，只适用于雷达图。
@@ -53,6 +56,8 @@ final public class Radar extends IRoot<Radar> {
     private SplitLine<Radar> splitLine;
     private SplitArea<Radar> splitArea;
     private AxisPointer<Radar> axisPointer;
+    private LinkedHashSet<Indicator> indicator;
+
 
 
     public Radar center(Object[] center) {
@@ -190,6 +195,12 @@ final public class Radar extends IRoot<Radar> {
 
     public Radar axisPointer(AxisPointer<Radar> axisPointer) {
         this.axisPointer = axisPointer;
+        return this;
+    }
+
+
+    public Radar indicator(LinkedHashSet<Indicator> indicator) {
+        this.indicator = indicator;
         return this;
     }
 }

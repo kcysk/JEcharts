@@ -13,9 +13,9 @@ import net.zdsoft.echarts.common.IRoot;
 import net.zdsoft.echarts.coords.data.AxisData;
 import net.zdsoft.echarts.coords.enu.AxisType;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.function.Function;
 
 /**
  * @author shenke
@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Getter
 @Setter
-public abstract class Axis<A extends Axis> extends IRoot<A> implements DataActor<A, AxisData> {
+public abstract class Axis<A extends Axis> extends IRoot<A> implements DataActor<A, AxisData<A>> {
 
     private String id;
     private AxisType type;
@@ -61,15 +61,24 @@ public abstract class Axis<A extends Axis> extends IRoot<A> implements DataActor
     private SplitArea<A> splitArea;
     private AxisPointer<A> axisPointer;
 
-    private List<AxisData> data;
+    private LinkedHashSet<AxisData<A>> data;
+
+    public abstract A coordSysIndex(Integer coordIndex);
+
 
     @Override
-    public A data(AxisData... t) {
+    public A data(AxisData<A> ... t) {
         if (data == null) {
-            data = new ArrayList<>();
+            data = new LinkedHashSet<>();
         }
-        data.addAll(Arrays.asList(t));
+        if (t != null) {
+            data.addAll(Arrays.asList(t));
+        }
         return (A) this;
+    }
+
+    public A data(String value, Function<String, AxisData<A>> apply) {
+        return data(apply.apply(value));
     }
 
     public A id(String id) {

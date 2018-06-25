@@ -17,5 +17,5 @@ public enum SeriesEnum {
     themeRiver, custom, map,
 
     //--------- 扩展部分 ---------//
-    wordCloud
+    wordCloud, liquidFill
 }

@@ -22,8 +22,9 @@ public abstract class AbstractParent<P, A extends AbstractParent> implements Par
     }
 
     @Override
-    public void parent(P parent) {
+    public A parent(P parent) {
         this.parent = parent;
+        return (A) this;
     }
 
     /**

@@ -15,5 +15,5 @@ public interface Parent<P, E extends Parent> {
 
     P parent();
 
-    void parent(P parent);
+    E parent(P parent);
 }

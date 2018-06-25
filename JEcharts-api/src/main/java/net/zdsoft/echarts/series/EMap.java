@@ -118,26 +118,6 @@ final public class EMap extends Series<EMap, EMapData> {
         return this;
     }
 
-    public EMap left(Left left) {
-        this.left = left;
-        return this;
-    }
-
-    public EMap top(Top top) {
-        this.top = top;
-        return this;
-    }
-
-    public EMap right(Right right) {
-        this.right = right;
-        return this;
-    }
-
-    public EMap bottom(Bottom bottom) {
-        this.bottom = bottom;
-        return this;
-    }
-
     public EMap layoutCenter(Object[] layoutCenter) {
         this.layoutCenter = layoutCenter;
         return this;

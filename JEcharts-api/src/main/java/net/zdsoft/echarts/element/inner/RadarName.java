@@ -8,7 +8,7 @@ package net.zdsoft.echarts.element.inner;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.zdsoft.echarts.element.Radar;
+import net.zdsoft.echarts.coords.radar.Radar;
 import net.zdsoft.echarts.style.AbstractLabel;
 
 /**

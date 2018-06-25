@@ -24,6 +24,11 @@ final public class AngleAxis extends Axis<AngleAxis> {
     private Boolean clockwise;
     private Integer boundaryGap;
 
+    @Override
+    public AngleAxis coordSysIndex(Integer coordIndex) {
+        polarIndex = coordIndex;
+        return this;
+    }
 
     public AngleAxis polarIndex(Integer polarIndex) {
         this.polarIndex = polarIndex;

@@ -62,4 +62,112 @@ final public class Tooltip extends IRoot<Tooltip> {
     private String extraCssText;
 
 
+    public Tooltip show(Boolean show) {
+        this.show = show;
+        return this;
+    }
+
+    public Tooltip trigger(Trigger trigger) {
+        this.trigger = trigger;
+        return this;
+    }
+
+    public AxisPointer<Tooltip> axisPointer() {
+        if (axisPointer == null) {
+            axisPointer = new AxisPointer<>().parent(this);
+        }
+        return axisPointer;
+    }
+
+    public Tooltip axisPointer(AxisPointer<Tooltip> axisPointer) {
+        this.axisPointer = axisPointer;
+        return this;
+    }
+
+    public Tooltip showContent(Boolean showContent) {
+        this.showContent = showContent;
+        return this;
+    }
+
+    public Tooltip alwaysShowContent(Boolean alwaysShowContent) {
+        this.alwaysShowContent = alwaysShowContent;
+        return this;
+    }
+
+    public Tooltip triggerOn(TriggerOn triggerOn) {
+        this.triggerOn = triggerOn;
+        return this;
+    }
+
+    public Tooltip showDelay(Integer showDelay) {
+        this.showDelay = showDelay;
+        return this;
+    }
+
+    public Tooltip hideDelay(Integer hideDelay) {
+        this.hideDelay = hideDelay;
+        return this;
+    }
+
+    public Tooltip enterable(Boolean enterable) {
+        this.enterable = enterable;
+        return this;
+    }
+
+    public Tooltip confine(Boolean confine) {
+        this.confine = confine;
+        return this;
+    }
+
+    public Tooltip transitionDuration(Double transitionDuration) {
+        this.transitionDuration = transitionDuration;
+        return this;
+    }
+
+    public Tooltip position(Position position) {
+        this.position = position;
+        return this;
+    }
+
+    public Tooltip formatter(String formatter) {
+        this.formatter = formatter;
+        return this;
+    }
+
+    public Tooltip backgroundColor(Object backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
+    public Tooltip borderColor(Object borderColor) {
+        this.borderColor = borderColor;
+        return this;
+    }
+
+    public Tooltip borderWidth(Integer borderWidth) {
+        this.borderWidth = borderWidth;
+        return this;
+    }
+
+    public Tooltip padding(Integer padding) {
+        this.padding = padding;
+        return this;
+    }
+
+    public TextStyle<Tooltip, TextStyle> textStyle() {
+        if (textStyle == null) {
+            textStyle = new TextStyle<>().parent(this);
+        }
+        return textStyle;
+    }
+
+    public Tooltip textStyle(TextStyle<Tooltip, TextStyle> textStyle) {
+        this.textStyle = textStyle;
+        return this;
+    }
+
+    public Tooltip extraCssText(String extraCssText) {
+        this.extraCssText = extraCssText;
+        return this;
+    }
 }

@@ -20,5 +20,6 @@ package net.zdsoft.echarts.enu;
  */
 public enum CoordinateSystem {
 
-    cartesian2d, polar
+    cartesian2d, polar, geo,
+    radar, parallel, calendar
 }

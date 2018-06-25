@@ -9,6 +9,8 @@ package net.zdsoft.echarts.element;
 import lombok.Getter;
 import lombok.Setter;
 import net.zdsoft.echarts.common.AbstractParent;
+import net.zdsoft.echarts.common.DataActor;
+import net.zdsoft.echarts.element.inner.LegendData;
 import net.zdsoft.echarts.enu.Align;
 import net.zdsoft.echarts.enu.LegendEnum;
 import net.zdsoft.echarts.enu.Orient;
@@ -17,6 +19,9 @@ import net.zdsoft.echarts.enu.SelectedMode;
 import net.zdsoft.echarts.style.LegendTextStyle;
 import net.zdsoft.echarts.style.TextStyle;
 
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+
 /**
  * 图例组件
  * @author shenke
@@ -24,7 +29,7 @@ import net.zdsoft.echarts.style.TextStyle;
  */
 @Getter
 @Setter
-final public class Legend extends BaseComponent<Legend> {
+final public class Legend extends BaseComponent<Legend> implements DataActor<Legend, LegendData> {
 
     private LegendEnum          type;
     private String              id;
@@ -136,6 +141,19 @@ final public class Legend extends BaseComponent<Legend> {
      * 图例翻页时的动画时长。
      */
     private Integer animationDurationUpdate;
+
+    private LinkedHashSet<LegendData> data;
+
+    @Override
+    public Legend data(LegendData... t) {
+        if (data == null) {
+            data = new LinkedHashSet<>();
+        }
+        if (t != null) {
+            data.addAll(Arrays.asList(t));
+        }
+        return this;
+    }
 
     public Legend type(LegendEnum type) {
         this.type = type;

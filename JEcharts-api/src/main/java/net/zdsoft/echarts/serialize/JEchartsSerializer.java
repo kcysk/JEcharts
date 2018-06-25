@@ -20,7 +20,7 @@ import java.util.Set;
  * @author shenke
  * @since 2018/6/13 上午12:01
  */
-public class JEchartsSerializer implements AutowiredObjectSerializer {
+final public class JEchartsSerializer implements AutowiredObjectSerializer {
 
     private static Set<Type> autorireds;
 
@@ -29,6 +29,7 @@ public class JEchartsSerializer implements AutowiredObjectSerializer {
         autorireds.add(BottomEx.class);
         autorireds.add(FontWeightEx.class);
         autorireds.add(LeftEx.class);
+        autorireds.add(OnMouseWheelEx.class);
         autorireds.add(PositionEx.class);
         autorireds.add(RightEx.class);
         autorireds.add(RoamEx.class);
@@ -38,6 +39,7 @@ public class JEchartsSerializer implements AutowiredObjectSerializer {
         autorireds.add(StepEx.class);
         autorireds.add(SymbolEx.class);
         autorireds.add(TopEx.class);
+
     }
 
     @Override
@@ -52,7 +54,8 @@ public class JEchartsSerializer implements AutowiredObjectSerializer {
             serializer.out.writeNull();
             return ;
         }
-        serializer.out.write(object.toString());
+        String text = object.toString();
+        serializer.out.write("\"" + text + "\"");
     }
 
 }

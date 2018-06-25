@@ -32,6 +32,11 @@ final public class RadiusAxis extends Axis<RadiusAxis> {
     private Boolean inverse;
     private Object boundaryGap;
 
+    @Override
+    public RadiusAxis coordSysIndex(Integer coordIndex) {
+        polarIndex = coordIndex;
+        return this;
+    }
 
     public RadiusAxis polarIndex(Integer polarIndex) {
         this.polarIndex = polarIndex;

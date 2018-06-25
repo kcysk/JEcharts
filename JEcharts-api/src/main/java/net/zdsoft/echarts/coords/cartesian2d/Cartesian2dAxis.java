@@ -10,8 +10,8 @@ import lombok.Getter;
 import lombok.Setter;
 import net.zdsoft.echarts.coords.Axis;
 import net.zdsoft.echarts.coords.NameTextStyle;
+import net.zdsoft.echarts.coords.enu.AxisPosition;
 import net.zdsoft.echarts.coords.enu.NameLocation;
-import net.zdsoft.echarts.enu.Position;
 
 /**
  * x轴和y轴
@@ -28,7 +28,7 @@ final public class Cartesian2dAxis extends Axis<Cartesian2dAxis> {
     /**
      * 只可用 top bottom
      */
-    private Position position;
+    private AxisPosition position;
 
     private String name;
     private NameLocation nameLocation;
@@ -41,6 +41,11 @@ final public class Cartesian2dAxis extends Axis<Cartesian2dAxis> {
     private Boolean inverse;
     private Object boundaryGap;
 
+    @Override
+    public Cartesian2dAxis coordSysIndex(Integer coordIndex) {
+        this.gridIndex = coordIndex;
+        return this;
+    }
 
     public Cartesian2dAxis show(Boolean show) {
         this.show = show;
@@ -57,10 +62,6 @@ final public class Cartesian2dAxis extends Axis<Cartesian2dAxis> {
         return this;
     }
 
-    public Cartesian2dAxis position(Position position) {
-        this.position = position;
-        return this;
-    }
 
     public Cartesian2dAxis name(String name) {
         this.name = name;
@@ -102,6 +103,11 @@ final public class Cartesian2dAxis extends Axis<Cartesian2dAxis> {
 
     public Cartesian2dAxis boundaryGap(Object boundaryGap) {
         this.boundaryGap = boundaryGap;
+        return this;
+    }
+
+    public Cartesian2dAxis position(AxisPosition position) {
+        this.position = position;
         return this;
     }
 }

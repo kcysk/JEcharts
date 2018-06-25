@@ -12,7 +12,11 @@ import net.zdsoft.echarts.Option;
 import net.zdsoft.echarts.common.Animationer;
 import net.zdsoft.echarts.common.DataActor;
 import net.zdsoft.echarts.common.Root;
+import net.zdsoft.echarts.enu.Bottom;
+import net.zdsoft.echarts.enu.Left;
+import net.zdsoft.echarts.enu.Right;
 import net.zdsoft.echarts.enu.SeriesEnum;
+import net.zdsoft.echarts.enu.Top;
 import net.zdsoft.echarts.series.data.SData;
 import net.zdsoft.echarts.style.ItemStyle;
 import net.zdsoft.echarts.style.Label;
@@ -38,6 +42,13 @@ public abstract class Series<R extends Series, D extends SData> extends Animatio
     private ItemStyle<R, ? extends ItemStyle> itemStyle;
     private Label<R> label;
 
+    private Top top;
+    private Left left;
+    private Right right;
+    private Bottom bottom;
+
+
+
 
     @Override
     public Option option() {
@@ -57,36 +68,38 @@ public abstract class Series<R extends Series, D extends SData> extends Animatio
         if (data == null) {
             data = new LinkedList<>();
         }
-        data.addAll(Arrays.asList(t));
+        if (t != null) {
+            data.addAll(Arrays.asList(t));
+        }
         return (R) this;
     }
 
     public abstract D create();
 
 
-    public Series type(SeriesEnum type) {
+    public R type(SeriesEnum type) {
         this.type = type;
-        return this;
+        return (R) this;
     }
 
-    public Series id(String id) {
+    public R id(String id) {
         this.id = id;
-        return this;
+        return (R) this;
     }
 
-    public Series name(String name) {
+    public R name(String name) {
         this.name = name;
-        return this;
+        return (R) this;
     }
 
-    public Series z(Integer z) {
+    public R z(Integer z) {
         this.z = z;
-        return this;
+        return (R) this;
     }
 
-    public Series zlevel(Integer zlevel) {
+    public R zlevel(Integer zlevel) {
         this.zlevel = zlevel;
-        return this;
+        return (R) this;
     }
 
     public ItemStyle<R,? extends ItemStyle> itemStyle() {
@@ -97,9 +110,9 @@ public abstract class Series<R extends Series, D extends SData> extends Animatio
         return itemStyle;
     }
 
-    public Series itemStyle(ItemStyle<R, ? extends ItemStyle> itemStyle) {
+    public R itemStyle(ItemStyle<R, ? extends ItemStyle> itemStyle) {
         this.itemStyle = itemStyle;
-        return this;
+        return (R) this;
     }
 
     public Label<R> label() {
@@ -110,8 +123,28 @@ public abstract class Series<R extends Series, D extends SData> extends Animatio
         return label;
     }
 
-    public Series label(Label<R> label) {
+    public R label(Label<R> label) {
         this.label = label;
-        return this;
+        return (R) this;
+    }
+
+    public R top(Top top) {
+        this.top = top;
+        return (R) this;
+    }
+
+    public R left(Left left) {
+        this.left = left;
+        return (R) this;
+    }
+
+    public R right(Right right) {
+        this.right = right;
+        return (R) this;
+    }
+
+    public R bottom(Bottom bottom) {
+        this.bottom = bottom;
+        return (R) this;
     }
 }

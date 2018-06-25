@@ -1,0 +1,10 @@
+net.zdsoft.echarts.convert.support.JBarConvert
+net.zdsoft.echarts.convert.support.JFunnelConvert
+net.zdsoft.echarts.convert.support.JLineConvert
+net.zdsoft.echarts.convert.support.JMapConvert
+net.zdsoft.echarts.convert.support.JPieConvert
+net.zdsoft.echarts.convert.support.JRadarConvert
+net.zdsoft.echarts.convert.support.JScatterConvert
+net.zdsoft.echarts.convert.support.JWordCloudConvert
+net.zdsoft.echarts.convert.support.JLinesConvert
+net.zdsoft.echarts.convert.support.JEffectScatterConvert

@@ -9,7 +9,6 @@ package net.zdsoft.echarts.series.data;
 import lombok.Getter;
 import lombok.Setter;
 import net.zdsoft.echarts.enu.Symbol;
-import net.zdsoft.echarts.exception.NotSupportExcetion;
 import net.zdsoft.echarts.series.EffectScatter;
 
 /**
@@ -42,27 +41,6 @@ final public class EffectScatterData extends CommonSData<EffectScatter, EffectSc
      * 例如 [0, '50%'] 就是把自己向上移动了一半的位置，在 symbol 图形是气泡的时候可以让图形下端的箭头对准数据点
      */
     private Object[] symbolOffset;
-
-    @Override
-    public String getName() {
-        return null;
-    }
-
-    @Override
-    public Object getValue() {
-        return null;
-    }
-
-    @Override
-    public void setName(String name) {
-        throw new NotSupportExcetion("option.series.data[type='scatter'] not support name");
-    }
-
-    @Override
-    public void setValue(Object value) {
-        throw new NotSupportExcetion("option.series.data[type='scatter'] not support value");
-    }
-
 
     public EffectScatterData symbol(Symbol symbol) {
         this.symbol = symbol;

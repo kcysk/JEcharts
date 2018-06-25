@@ -4,11 +4,12 @@
  * Date:     2018/6/12 下午10:48
  * Descriptor:
  */
-package net.zdsoft.echarts.element;
+package net.zdsoft.echarts.coords.geo;
 
 import lombok.Getter;
 import lombok.Setter;
 import net.zdsoft.echarts.common.AbstractParent;
+import net.zdsoft.echarts.element.BaseComponent;
 import net.zdsoft.echarts.enu.Roam;
 import net.zdsoft.echarts.enu.SelectedMode;
 import net.zdsoft.echarts.mix.ScaleLimit;
