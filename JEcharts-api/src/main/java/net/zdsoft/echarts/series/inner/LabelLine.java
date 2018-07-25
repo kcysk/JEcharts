@@ -19,46 +19,48 @@ import net.zdsoft.echarts.style.LineStyle;
  */
 @Getter
 @Setter
-final public class LabelLine extends AbstractParent<FunnelData, LabelLine> {
+final public class LabelLine<P> extends AbstractParent<P, LabelLine> {
 
     private Boolean show;
     private Integer length;
-    private LineStyle<LabelLine, LineStyle> lineStyle;
-    private Emphasis<LabelLine> emphasis;
+    private LineStyle<LabelLine<P>, LineStyle> lineStyle;
+    private Emphasis<LabelLine<P>> emphasis;
 
 
-    public LabelLine show(Boolean show) {
+    public LabelLine<P> show(Boolean show) {
         this.show = show;
         return this;
     }
 
-    public LabelLine length(Integer length) {
+    public LabelLine<P> length(Integer length) {
         this.length = length;
         return this;
     }
 
-    public LineStyle<LabelLine, LineStyle> lineStyle() {
-        if (lineStyle == null) {
-            lineStyle = new LineStyle<>();
-            lineStyle.parent(this);
+    public LineStyle<LabelLine<P>, LineStyle> lineStyle() {
+        if (this.lineStyle == null) {
+            this.lineStyle = new LineStyle();
+            this.lineStyle.parent(this);
         }
-        return lineStyle;
+
+        return this.lineStyle;
     }
 
-    public LabelLine lineStyle(LineStyle<LabelLine, LineStyle> lineStyle) {
+    public LabelLine<P> lineStyle(LineStyle<LabelLine<P>, LineStyle> lineStyle) {
         this.lineStyle = lineStyle;
         return this;
     }
 
-    public Emphasis<LabelLine> emphasis() {
-        if (emphasis == null) {
-            emphasis = new Emphasis<>();
-            emphasis.parent(this);
+    public Emphasis<LabelLine<P>> emphasis() {
+        if (this.emphasis == null) {
+            this.emphasis = new Emphasis();
+            this.emphasis.parent(this);
         }
-        return emphasis;
+
+        return this.emphasis;
     }
 
-    public LabelLine emphasis(Emphasis<LabelLine> emphasis) {
+    public LabelLine<P> emphasis(Emphasis<LabelLine<P>> emphasis) {
         this.emphasis = emphasis;
         return this;
     }

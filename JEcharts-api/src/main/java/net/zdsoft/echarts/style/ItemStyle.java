@@ -34,6 +34,9 @@ public class ItemStyle<P, I extends ItemStyle> extends AbstractParent<P, I> {
     private BorderType borderType;
     @Getter
     @Setter
+    private Object barBorderRadius;
+    @Getter
+    @Setter
     private Integer shadowBlur;
     @Getter
     @Setter

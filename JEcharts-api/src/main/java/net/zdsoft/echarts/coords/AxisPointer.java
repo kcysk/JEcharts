@@ -33,6 +33,7 @@ final public class AxisPointer<P> extends AbstractParent<P, AxisPointer> {
     private Object value;
     private AxisPointerStatus status;
     private Handle<AxisPointer<P>> handle;
+    private AxisPointerLabel<AxisPointer<P>> label;
 
 
     public AxisPointer<P> show(Boolean show) {
@@ -107,6 +108,19 @@ final public class AxisPointer<P> extends AbstractParent<P, AxisPointer> {
 
     public AxisPointer<P> handle(Handle<AxisPointer<P>> handle) {
         this.handle = handle;
+        return this;
+    }
+    public AxisPointerLabel<AxisPointer<P>> label() {
+        if (this.label == null) {
+            this.label = new AxisPointerLabel();
+            this.label.parent(this);
+        }
+
+        return this.label;
+    }
+
+    public AxisPointer<P> label(AxisPointerLabel<AxisPointer<P>> label) {
+        this.label = label;
         return this;
     }
 }

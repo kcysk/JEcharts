@@ -20,6 +20,7 @@ import net.zdsoft.echarts.element.Legend;
 import net.zdsoft.echarts.coords.polar.Polar;
 import net.zdsoft.echarts.coords.radar.Radar;
 import net.zdsoft.echarts.element.Title;
+import net.zdsoft.echarts.element.Tooltip;
 import net.zdsoft.echarts.element.VisualMap;
 import net.zdsoft.echarts.series.Series;
 import net.zdsoft.echarts.style.TextStyle;
@@ -51,7 +52,7 @@ public class Option extends Animationer<Option, Option> {
     private List<DataZoom> dataZoom;
     private List<VisualMap> visualMap;
 
-
+    private Tooltip tooltip;
     private AxisPointer<Option> axisPointer;
     private List<Geo> geo;
     private List<Series> series;
@@ -308,6 +309,11 @@ public class Option extends Animationer<Option, Option> {
 
     public Option radar(List<Radar> radar) {
         this.radar = radar;
+        return this;
+    }
+
+    public Option tooltip(Tooltip tooltip) {
+        this.tooltip = tooltip;
         return this;
     }
 }

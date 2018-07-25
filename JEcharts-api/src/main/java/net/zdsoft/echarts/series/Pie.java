@@ -14,6 +14,8 @@ import net.zdsoft.echarts.enu.SeriesEnum;
 import net.zdsoft.echarts.enu.SeriesLayoutBy;
 import net.zdsoft.echarts.series.data.PieData;
 import net.zdsoft.echarts.series.data.Tooltip;
+import net.zdsoft.echarts.series.inner.LabelLine;
+import net.zdsoft.echarts.style.Emphasis;
 
 /**
  * @author shenke
@@ -48,7 +50,8 @@ final public class Pie extends Series<Pie, PieData> {
     private Object[] radius;
     private SeriesLayoutBy seriesLayoutBy;
     private Integer datasetIndex;
-
+    private LabelLine<Pie> labelLine;
+    private Emphasis<Pie> emphasis;
     private Tooltip<Pie> tooltip;
 
     public Pie() {
@@ -153,6 +156,15 @@ final public class Pie extends Series<Pie, PieData> {
 
     public Pie tooltip(Tooltip<Pie> tooltip) {
         this.tooltip = tooltip;
+        return this;
+    }
+    public Pie labelLine(LabelLine<Pie> labelLine) {
+        this.labelLine = labelLine;
+        return this;
+    }
+
+    public Pie emphasis(Emphasis<Pie> emphasis) {
+        this.emphasis = emphasis;
         return this;
     }
 }

@@ -18,7 +18,7 @@ import net.zdsoft.echarts.style.LineStyle;
 @Getter
 @Setter
 final public class SplitLine<P> extends AbstractParent<P, SplitLine> {
-
+    private Object length;
     private Boolean show;
     private Object interval;
     private LineStyle<SplitLine<P>, LineStyle> lineStyle;

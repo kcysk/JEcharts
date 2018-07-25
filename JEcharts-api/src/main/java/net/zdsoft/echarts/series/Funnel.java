@@ -14,6 +14,7 @@ import net.zdsoft.echarts.enu.SeriesLayoutBy;
 import net.zdsoft.echarts.enu.Sort;
 import net.zdsoft.echarts.series.data.FunnelData;
 import net.zdsoft.echarts.series.data.Tooltip;
+import net.zdsoft.echarts.series.inner.LabelLine;
 
 /**
  * @author shenke
@@ -36,6 +37,7 @@ final public class Funnel extends Series<Funnel, FunnelData> {
     private Integer datasetIndex;
 
     private Tooltip<Funnel> tooltip;
+    private LabelLine<Funnel> labelLine;
 
     public Funnel() {
         type(SeriesEnum.funnel);
@@ -109,6 +111,10 @@ final public class Funnel extends Series<Funnel, FunnelData> {
 
     public Funnel tooltip(Tooltip<Funnel> tooltip) {
         this.tooltip = tooltip;
+        return this;
+    }
+    public Funnel labelLine(LabelLine<Funnel> labelLine) {
+        this.labelLine = labelLine;
         return this;
     }
 }
