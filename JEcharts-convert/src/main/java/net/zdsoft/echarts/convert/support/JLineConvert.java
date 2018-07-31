@@ -7,6 +7,8 @@
 package net.zdsoft.echarts.convert.support;
 
 import net.zdsoft.echarts.Option;
+import net.zdsoft.echarts.common.StringUtils;
+import net.zdsoft.echarts.common.Utils;
 import net.zdsoft.echarts.convert.api.JData;
 import net.zdsoft.echarts.convert.api.JDataConvertChain;
 import net.zdsoft.echarts.coords.Axis;
@@ -39,11 +41,18 @@ public class JLineConvert extends JDataConvertRoot {
         Map<String, Line> lines = new HashMap<>();
         Axis xAxis = createCoordinateSystemAxis(data.getCoordSys(), false);
         for (JData.Entry entry : data.getEntryList()) {
-            Line line = lines.computeIfAbsent(entry.getName(), name -> new Line().option(option));
-            line.data(line.create().name(entry.getX()).value(entry.getY()).parent(line)).stack(entry.getStack());
+            xAxis.data(new AxisData<Axis>().parent(xAxis).value(entry.getX())).type(AxisType.category);
+            Line line = lines.computeIfAbsent(entry.getName(), name -> new Line().option(option).name(name));
+            int xIndex = 0;
+            for (Object o : xAxis.getData()) {
+                if (StringUtils.equals(((AxisData)o).getValue(), entry.getX())) {
+                    break;
+                }
+                xIndex ++;
+            }
+            line.data(line.create().name(entry.getX()).value(Utils.asArray(xIndex, entry.getY())).parent(line)).stack(entry.getStack());
             option.legend().data(new LegendData().name(entry.getName()));
             //x轴或者角度轴
-            xAxis.data(new AxisData<Axis>().parent(xAxis).value(entry.getX())).type(AxisType.category);
         }
         //通常情况下y轴或者极坐标系的径向轴不用设置
         Axis yAxis = createCoordinateSystemAxis(data.getCoordSys(), true);

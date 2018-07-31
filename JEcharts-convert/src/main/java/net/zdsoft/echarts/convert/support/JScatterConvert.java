@@ -7,6 +7,7 @@
 package net.zdsoft.echarts.convert.support;
 
 import net.zdsoft.echarts.Option;
+import net.zdsoft.echarts.common.StringUtils;
 import net.zdsoft.echarts.common.Utils;
 import net.zdsoft.echarts.convert.api.JData;
 import net.zdsoft.echarts.convert.api.JDataConvertChain;
@@ -53,10 +54,17 @@ public class JScatterConvert extends JDataConvertRoot {
                     scatter.data(scatterData.name(entry.getX()).value(Utils.asArray(entry.getX(), entry.getY())));
 
                 } else {
-                    scatter.data(scatterData.name(entry.getX()).value(entry.getY()));
                     if (xAxis != null) {
                         xAxis.data(new AxisData<Axis>().parent(xAxis).value(entry.getX()));
                     }
+                    int xIndex = 0;
+                    for (Object o : xAxis.getData()) {
+                        if (StringUtils.equals(((AxisData)o).getValue(), entry.getX())) {
+                            break;
+                        }
+                        xIndex ++;
+                    }
+                    scatter.data(scatterData.name(entry.getX()).value(Utils.asArray(xIndex,entry.getY())));
                 }
             }
         }

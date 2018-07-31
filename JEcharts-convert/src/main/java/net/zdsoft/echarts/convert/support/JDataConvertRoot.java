@@ -75,37 +75,29 @@ public abstract class JDataConvertRoot implements JDataConvert {
                 coordSysIndex = option.radar().size();
                 option.radar().add(new Radar().option(option));
             }
-        } else {
-            //坐标系还未建立
+        } else if (CoordinateSystem.cartesian2d.equals(data.getCoordSys())) {
             if (option.grid().size() == 0) {
-                coordSysIndex = 0;
-                if (CoordinateSystem.cartesian2d.equals(data.getCoordSys())) {
-                    option.grid().add(new Grid().option(option));
-                }
-                else if (CoordinateSystem.polar.equals(data.getCoordSys())) {
-                    option.polar().add(new Polar().option(option));
-                }
-                else if (CoordinateSystem.geo.equals(data.getCoordSys())) {
-                    option.geo().add(new Geo().option(option).map(data.getMapType()));
-                }
-                else if (CoordinateSystem.radar.equals(data.getCoordSys())) {
-                    option.radar().add(new Radar().option(option));
-                }
+                option.grid().add((new Grid()).option(option));
             } else {
-                if (coordSysIndex == null) {
-                    if (CoordinateSystem.cartesian2d.equals(data.getCoordSys())) {
-                        coordSysIndex = option.grid().size() - 1;
-                    }
-                    else if (CoordinateSystem.polar.equals(data.getCoordSys())) {
-                        coordSysIndex = option.polar().size() - 1;
-                    }
-                    else if (CoordinateSystem.geo.equals(data.getCoordSys())) {
-                        coordSysIndex = option.geo().size() - 1;
-                    }
-                    else if (CoordinateSystem.radar.equals(data.getCoordSys())) {
-                        coordSysIndex = option.radar().size() - 1;
-                    }
-                }
+                coordSysIndex = option.grid().size() - 1;
+            }
+        } else if (CoordinateSystem.polar.equals(data.getCoordSys())) {
+            if (option.polar().size() == 0) {
+                option.polar().add((new Polar()).option(option));
+            } else {
+                coordSysIndex = option.polar().size() - 1;
+            }
+        } else if (CoordinateSystem.geo.equals(data.getCoordSys())) {
+            if (option.geo().size() == 0) {
+                option.geo().add(((Geo)(new Geo()).option(option)).map(data.getMapType()));
+            } else {
+                coordSysIndex = option.geo().size() - 1;
+            }
+        } else if (CoordinateSystem.radar.equals(data.getCoordSys())) {
+            if (option.radar().size() == 0) {
+                option.radar().add((new Radar()).option(option));
+            } else {
+                coordSysIndex = option.radar().size() - 1;
             }
         }
         if (xAxis != null) {

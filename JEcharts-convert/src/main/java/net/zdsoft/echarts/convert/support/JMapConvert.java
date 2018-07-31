@@ -31,9 +31,9 @@ public class JMapConvert extends JDataConvertRoot {
 
         Map<String, EMap> emps = new HashMap<>();
         for (JData.Entry entry : data.getEntryList()) {
-            EMap eMap = emps.computeIfAbsent(entry.getName(), name -> new EMap().option(option));
+            EMap eMap = emps.computeIfAbsent(entry.getName(), name -> new EMap().option(option).name(name));
             eMap.data(eMap.create().name(entry.getX()).value(entry.getY())).map(data.getMapType());
-            option.legend().data(new LegendData().name(entry.getName()));
+            option.legend().data(new LegendData().name(entry.getX()));
         }
         option.series().addAll(emps.values());
     }

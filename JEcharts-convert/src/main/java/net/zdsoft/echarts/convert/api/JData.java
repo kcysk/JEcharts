@@ -160,6 +160,8 @@ public class JData {
          * 系列名称
          */
         private String name;
+        private Object min;
+        private Object max;
 
         @Override
         public Object clone() {

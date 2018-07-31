@@ -25,6 +25,7 @@ final public class LabelLine<P> extends AbstractParent<P, LabelLine> {
     private Integer length;
     private LineStyle<LabelLine<P>, LineStyle> lineStyle;
     private Emphasis<LabelLine<P>> emphasis;
+    private Boolean smooth;
 
 
     public LabelLine<P> show(Boolean show) {
@@ -64,4 +65,5 @@ final public class LabelLine<P> extends AbstractParent<P, LabelLine> {
         this.emphasis = emphasis;
         return this;
     }
+
 }

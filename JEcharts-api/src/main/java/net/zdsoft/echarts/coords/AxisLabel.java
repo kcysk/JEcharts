@@ -21,6 +21,7 @@ final public class AxisLabel<P> extends AbstractLabel<P, AxisLabel> {
     private Object interval;
     private Boolean inside;
     private Integer margin;
+    private Integer distance;
 
     private Boolean showMinLabel;
     private Boolean showMaxLabel;

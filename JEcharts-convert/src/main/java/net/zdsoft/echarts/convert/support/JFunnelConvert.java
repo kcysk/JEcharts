@@ -33,7 +33,7 @@ public class JFunnelConvert extends JDataConvertRoot {
 
         Map<String, Funnel> fnnels = new HashMap<>();
         for (JData.Entry entry : data.getEntryList()) {
-            Funnel funnel = fnnels.computeIfAbsent(entry.getName(), name -> new Funnel().option(option));
+            Funnel funnel = fnnels.computeIfAbsent(entry.getName(), name -> new Funnel().option(option).name(name));
             funnel.data(funnel.create().name(entry.getX()).value(entry.getY()));
             option.legend().data(new LegendData().name(entry.getName()));
         }

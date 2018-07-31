@@ -39,12 +39,15 @@ public class JLinesConvert extends JDataConvertRoot {
             Lines lines = linesMap.computeIfAbsent(entry.getName(), name -> new Lines().name(name).option(option));
             LinesData linesData = lines.create();
             lines.data(linesData);
+            linesData.value(entry.getY());
             if (CoordinateSystem.geo.equals(data.getCoordSys())) {
                 linesData.coords(Utils.asArray(getGeoCoordByEntryX(entry.getX()), getGeoCoordByEntryX(entry.getToX())));
+                lines.coordinateSystem(CoordinateSystem.geo);
             }
             else if (CoordinateSystem.cartesian2d.equals(data.getCoordSys())) {
                 linesData.coords(Utils.asArray(Utils.asArray(entry.getX(), entry.getY()),
                         Utils.asArray(entry.getToX(), entry.getToY())));
+                lines.coordinateSystem(CoordinateSystem.cartesian2d);
             }
             option.legend().data(new LegendData().name(entry.getName()));
         }

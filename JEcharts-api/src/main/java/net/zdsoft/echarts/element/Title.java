@@ -20,6 +20,7 @@ import net.zdsoft.echarts.style.TitleTextStyle;
 @Setter
 final public class Title extends BaseComponent<Title> {
 
+    private Object[] offsetCenter;
     /**
      * 组件 ID。默认不指定。指定则可用于在 option 或者 API 中引用组件
      */
