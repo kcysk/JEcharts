@@ -27,6 +27,7 @@ abstract class CommonSData<P, CD extends CommonSData> extends AbstractParent<P, 
     private ItemStyle<CD, ItemStyle> itemStyle;
     private Emphasis<CD> emphasis;
     private Tooltip<CD> tooltip;
+    private Boolean visualMap;
 
     public CD name(String name) {
         this.name = name;
