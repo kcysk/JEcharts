@@ -54,6 +54,10 @@ final public class JEchartsSerializer implements AutowiredObjectSerializer {
             serializer.out.writeNull();
             return ;
         }
+        if (object instanceof RoamEx) {
+            serializer.out.write(((RoamEx) object).getValue());
+            return ;
+        }
         String text = object.toString();
         serializer.out.write("\"" + text + "\"");
     }

@@ -6,6 +6,7 @@
  */
 package net.zdsoft.echarts.enu;
 
+import lombok.Getter;
 import lombok.Setter;
 
 /**
@@ -16,6 +17,7 @@ final public class RoamEx implements Roam {
     RoamEx() {
     }
 
+    @Getter
     @Setter
     private Boolean value;
 

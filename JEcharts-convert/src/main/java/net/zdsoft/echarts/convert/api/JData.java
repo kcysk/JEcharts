@@ -30,6 +30,7 @@ import java.util.List;
 public class JData {
 
     private List<Entry> entryList;
+    private List<Link> linkList;
     /**
      * 该数据对应的图表类型
      */
@@ -172,5 +173,13 @@ public class JData {
             entry.setName(name);
             return entry;
         }
+    }
+
+    @Getter
+    @Setter
+    public static class Link {
+        private String source;
+        private String target;
+        private Number value;
     }
 }
