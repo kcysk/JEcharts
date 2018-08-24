@@ -13,8 +13,8 @@ import net.zdsoft.echarts.series.Graph;
 @Setter
 public class GraphData extends CommonSData<Graph, GraphData> {
 
-    private Number x;
-    private Number y;
+    private Object x;
+    private Object y;
     private Boolean fixed;
     private Integer category;
     private Symbol symbol;

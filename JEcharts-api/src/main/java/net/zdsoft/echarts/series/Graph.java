@@ -50,7 +50,7 @@ public class Graph extends Series<Graph, GraphData> {
     private Label<Graph> edgeLabel;
     private Emphasis<Graph> emphasis;
     private Category[] categories;
-    private Link[] nodes;
+    private Link[] links;
 
     public Graph() {
         setType(SeriesEnum.graph);

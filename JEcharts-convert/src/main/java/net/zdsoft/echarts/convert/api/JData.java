@@ -13,10 +13,12 @@ import net.zdsoft.echarts.coords.enu.AxisPosition;
 import net.zdsoft.echarts.coords.enu.AxisType;
 import net.zdsoft.echarts.enu.Bottom;
 import net.zdsoft.echarts.enu.CoordinateSystem;
+import net.zdsoft.echarts.enu.Layout;
 import net.zdsoft.echarts.enu.Left;
 import net.zdsoft.echarts.enu.Right;
 import net.zdsoft.echarts.enu.RoseType;
 import net.zdsoft.echarts.enu.SeriesEnum;
+import net.zdsoft.echarts.enu.Symbol;
 import net.zdsoft.echarts.enu.Top;
 
 import java.util.List;
@@ -89,6 +91,7 @@ public class JData {
     private RoseType roseType;
 
     private List<JIndicator> indicatorList;
+    private Layout layout;
 
     @Getter
     @Setter
@@ -146,6 +149,12 @@ public class JData {
          */
         private Object y;
         /**
+         * 仅适用于Graph，其他类型都不会使用该字段
+         */
+        private Number value;
+        private String parent;
+        private EntryGraphStyle entryGraphStyle;
+        /**
          * 用于绘制直角坐标系上的Lines
          */
         private String toX;
@@ -173,6 +182,18 @@ public class JData {
             entry.setName(name);
             return entry;
         }
+    }
+
+    @Getter
+    @Setter
+    public static class EntryGraphStyle {
+        private Boolean fixed;
+        private Integer category;
+        private Symbol symbol;
+        private Integer symbolSize;
+        private Integer symbolRotate;
+        private Boolean symbolKeepAspect;
+        private Object[] symbolOffset;
     }
 
     @Getter

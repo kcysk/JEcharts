@@ -10,3 +10,4 @@ net.zdsoft.echarts.convert.support.JLinesConvert
 net.zdsoft.echarts.convert.support.JEffectScatterConvert
 net.zdsoft.echarts.convert.support.JGaugeConvert
 net.zdsoft.echarts.convert.support.JSankeyConvert
+net.zdsoft.echarts.convert.support.JGraphConvert
