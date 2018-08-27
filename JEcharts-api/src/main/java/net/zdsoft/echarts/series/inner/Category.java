@@ -7,6 +7,8 @@ import net.zdsoft.echarts.style.Emphasis;
 import net.zdsoft.echarts.style.ItemStyle;
 import net.zdsoft.echarts.style.Label;
 
+import java.util.Objects;
+
 /**
  * @author shenke
  * @since 2018/8/24 11:24
@@ -23,4 +25,17 @@ public class Category {
     private ItemStyle<Category, ItemStyle> itemStyle;
     private Label<Category> label;
     private Emphasis<Category> emphasis;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return Objects.equals(name, category.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }

@@ -86,7 +86,7 @@ public class Graph extends Series<Graph, GraphData> {
     public static class Link {
         private Object source;
         private Object target;
-        private Number value;
+        private Object value;
         private LineStyle<Link, LineStyle> lineStyle;
         private Label<Link> label;
         private Emphasis<Link> emphasis;

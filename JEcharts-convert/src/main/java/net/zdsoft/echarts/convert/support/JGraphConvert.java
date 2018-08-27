@@ -7,9 +7,12 @@ import net.zdsoft.echarts.enu.Layout;
 import net.zdsoft.echarts.enu.SeriesEnum;
 import net.zdsoft.echarts.series.Graph;
 import net.zdsoft.echarts.series.data.GraphData;
+import net.zdsoft.echarts.series.inner.Category;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author shenke
@@ -40,6 +43,7 @@ public class JGraphConvert extends JDataConvertRoot {
         } else {
             coord(data, graph);
         }
+        graph.setCategories(categories(data.getEntryList()).toArray(new Category[0]));
         option.series(graph);
     }
 
@@ -47,6 +51,7 @@ public class JGraphConvert extends JDataConvertRoot {
         for (JData.Entry entry : data.getEntryList()) {
             GraphData graphData = graph.create().name(entry.getX()).value(entry.getY());
             graph.data(graphData);
+            graphData.setCategory(entry.getCategory());
             entryGraphStyle(entry, graphData);
         }
     }
@@ -56,10 +61,19 @@ public class JGraphConvert extends JDataConvertRoot {
             GraphData graphData = graph.create();
             graphData.setX(entry.getX());
             graphData.setY(entry.getY());
+            graphData.setCategory(entry.getCategory());
             graphData.setValue(entry.getValue());
             entryGraphStyle(entry, graphData);
             graph.data(graphData);
         }
+    }
+
+    private LinkedHashSet<Category> categories(List<JData.Entry> entries) {
+        return entries.stream().map(entry -> {
+            Category category = new Category();
+            category.setName(entry.getName());
+            return category;
+        }).collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     private void entryGraphStyle(JData.Entry entry, GraphData graphData) {

@@ -16,7 +16,7 @@ public class GraphData extends CommonSData<Graph, GraphData> {
     private Object x;
     private Object y;
     private Boolean fixed;
-    private Integer category;
+    private Object category;
     private Symbol symbol;
     private Object symbolSize;
     private Integer symbolRotate;

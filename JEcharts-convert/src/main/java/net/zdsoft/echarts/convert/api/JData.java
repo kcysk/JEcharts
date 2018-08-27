@@ -151,8 +151,9 @@ public class JData {
         /**
          * 仅适用于Graph，其他类型都不会使用该字段
          */
-        private Number value;
+        private Object value;
         private String parent;
+        private String category;
         private EntryGraphStyle entryGraphStyle;
         /**
          * 用于绘制直角坐标系上的Lines
@@ -201,6 +202,6 @@ public class JData {
     public static class Link {
         private String source;
         private String target;
-        private Number value;
+        private Object value;
     }
 }
