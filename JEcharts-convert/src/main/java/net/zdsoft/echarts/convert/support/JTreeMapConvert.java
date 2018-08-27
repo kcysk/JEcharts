@@ -1,7 +1,5 @@
 package net.zdsoft.echarts.convert.support;
 
-import lombok.Getter;
-import lombok.Setter;
 import net.zdsoft.echarts.Option;
 import net.zdsoft.echarts.common.StringUtils;
 import net.zdsoft.echarts.convert.api.JData;
@@ -33,8 +31,8 @@ public class JTreeMapConvert extends JDataConvertRoot {
         Map<String, JData.Entry> entryMap =
                 data.getEntryList().stream().collect(Collectors.toMap(JData.Entry::getX, Function.identity()));
         TreeMapData emptyData = new TreeMapData();
-        createNodeList(emptyData, entryMap);
-        treeMap.data(emptyData.getChildren());
+        treeMap.data(createNodeList(emptyData, entryMap).toArray(new TreeMapData[0]));
+        option.series(treeMap);
     }
 
     private List<TreeMapData> createNodeList(TreeMapData root, Map<String, JData.Entry> entryMap) {
@@ -45,6 +43,7 @@ public class JTreeMapConvert extends JDataConvertRoot {
                 TreeMapData children = new TreeMapData();
                 if (StringUtils.isBlank(entryEntry.getValue().getParent())) {
                     children.setName(entryEntry.getKey());
+                    children.setValue(entryEntry.getValue().getY());
                     children.setChildren(createNodeList(children, entryMap).toArray(new TreeMapData[0]));
                     nodes.add(children);
                 }
@@ -54,6 +53,7 @@ public class JTreeMapConvert extends JDataConvertRoot {
                 TreeMapData children = new TreeMapData();
                 if (root.getName().equals(entryEntry.getValue().getParent())) {
                     children.setName(entryEntry.getKey());
+                    children.setValue(entryEntry.getValue().getY());
                     children.setChildren(createNodeList(children, entryMap).toArray(new TreeMapData[0]));
                     nodes.add(children);
                 }
