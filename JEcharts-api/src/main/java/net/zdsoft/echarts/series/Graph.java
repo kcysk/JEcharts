@@ -92,5 +92,6 @@ public class Graph extends Series<Graph, GraphData> {
         private Emphasis<Link> emphasis;
         private Object symbol;
         private Object symbolSize;
+        private String category;
     }
 }

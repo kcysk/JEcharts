@@ -41,6 +41,7 @@ public class TreeMap extends Series<TreeMap, TreeMapData> {
     private Double[] colorSaturation;
     private ColorMappingBy colorMappingBy;
     private Double visibleMin;
+    private Double childrenVisibleMin;
     private Label<TreeMap> upperLabel;
     private Emphasis<TreeMap> emphasis;
     private Breadcrumb breadcrumb;

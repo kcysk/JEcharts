@@ -34,6 +34,7 @@ public class JGraphConvert extends JDataConvertRoot {
             gLink.setSource(link.getSource());
             gLink.setTarget(link.getTarget());
             gLink.setValue(link.getValue());
+            gLink.setCategory(link.getCategory());
             gLinks.add(gLink);
         }
         graph.setLinks(gLinks.toArray(new Graph.Link[0]));

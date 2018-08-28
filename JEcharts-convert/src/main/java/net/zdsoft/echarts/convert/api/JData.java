@@ -203,5 +203,6 @@ public class JData {
         private String source;
         private String target;
         private Object value;
+        private String category;
     }
 }
