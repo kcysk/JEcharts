@@ -75,7 +75,7 @@ public class Graph extends Series<Graph, GraphData> {
     @Setter
     public static class Force {
         private String initLayout;
-        private Integer repulsion;
+        private Object repulsion;
         private Double gravity;
         private Object edgeLength;
         private Boolean layoutAnimation;
