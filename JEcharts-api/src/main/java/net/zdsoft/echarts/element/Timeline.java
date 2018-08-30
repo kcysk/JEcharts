@@ -10,6 +10,7 @@ import lombok.Data;
 import net.zdsoft.echarts.coords.enu.AxisType;
 import net.zdsoft.echarts.element.inner.CheckpointStyle;
 import net.zdsoft.echarts.element.inner.ControlStyle;
+import net.zdsoft.echarts.enu.Orient;
 import net.zdsoft.echarts.enu.Symbol;
 import net.zdsoft.echarts.style.Emphasis;
 import net.zdsoft.echarts.style.ItemStyle;
@@ -48,4 +49,5 @@ final public class Timeline extends BaseComponent<Timeline> {
     private CheckpointStyle checkpointStyle;
     private ControlStyle controlStyle;
     private List<Object> data;
+    private Orient orient;
 }
